@@ -1,14 +1,8 @@
-﻿using Project_Basic_Lite;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿using System.Text.RegularExpressions;
 
 namespace Project_Basic_Lite_1._2
 {
-    internal class SpracovaniUzivatelskychVstupu
+    internal class SpracovaniUzivatelskychVstupu   
     {
         //ziskava vstupy od uzivatele, validuje a osetruje je
         public SpracovaniUzivatelskychVstupu()
@@ -74,21 +68,21 @@ namespace Project_Basic_Lite_1._2
         }
 
         /// <summary>
-        /// pomocna metoda pro ziskani a validaci veku
+        /// pomocna metoda pro ziskani a validaci veku  
         /// </summary>
         /// <returns>Vek</returns>
         public int ZiskejVek()
         {
             Console.Write("Věk: \t\t\t"); //vyzada a ulozi vek 
             int vek = 0;
-            string zadanyVek = null;
-            while (!int.TryParse(zadanyVek, out vek))
+            string zadanyVek;
+            while (true)    // nekonecny cyklus, ktery se ukonci pouze pri validnim vstupu
             {
                 zadanyVek = Console.ReadLine();
-                if (!int.TryParse(zadanyVek, out vek))
-                {
-                    Console.Write("Nezadal jsi cislo! Zadej věk znovu: \t");
-                }
+				if (int.TryParse(zadanyVek, out vek) && vek > 0 && vek <= 150)
+				    break; // Pokud je vše v pořádku, ukončíme smyčku
+				
+				Console.Write("Nezadal jsi cislo! Zadej věk znovu (kladné číslo do 150):: \t");
             }
             return vek;
         }

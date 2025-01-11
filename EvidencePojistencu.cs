@@ -1,12 +1,4 @@
 ﻿using Project_Basic_Lite_1._2;
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Xml.Serialization;
 
 namespace Project_Basic_Lite
 {
@@ -49,13 +41,13 @@ namespace Project_Basic_Lite
         public void VypisSeznamOsob()
         {
             List<PojistenaOsoba> pojisteneOsoby = databazeOsob.VypisSeznamOsob(); //pracuje se seznamem, kam se ukladaji vsechny Osoby
-            if (!pojisteneOsoby.Any())
-            { Console.WriteLine("Žádná pojištěná osoba není uložena."); }           // pokud neni ulozena zadna osoba
+            if (!pojisteneOsoby.Any())                                         
+                Console.WriteLine("Žádná pojištěná osoba není uložena.");            // pokud neni ulozena zadna osoba
             else
             {
                 Console.WriteLine("Uložené pojištěné osoby:");                      //vypise celou ulozenou PojistenouOsobu dle String.Format
-                foreach (PojistenaOsoba osoba in pojisteneOsoby)
-                { Console.WriteLine(osoba); }
+                foreach (PojistenaOsoba osoba in pojisteneOsoby)                    
+                    Console.WriteLine(osoba); 
             }
             spracovaniUzivatelskychVstupu.Pokracuj();
         }
@@ -73,12 +65,12 @@ namespace Project_Basic_Lite
             //ze seznamu db vysledkyHledani vypis vysledky
             List<PojistenaOsoba> pojisteneOsoby = databazeOsob.VyhledejOsobu(jmeno, prijmeni); //pracuje se seznamem, kde jsou osoby s danym jmenem a prijmenim
             if (!pojisteneOsoby.Any())
-            { Console.WriteLine("\nŽádná osoba nebyla nalezena."); }        //pokud se nanasla zadna shoda jmena a prijmeni
+                 Console.WriteLine("\nŽádná osoba nebyla nalezena.");         //pokud se nanasla zadna shoda jmena a prijmeni
             else
             {
                 Console.WriteLine("\nNalezeno:\n");                         //vypise vsechny Osoby ze seznamu, kam se ulozili shody dle jmena a prijmeni
-                foreach (PojistenaOsoba osoba in pojisteneOsoby)
-                { Console.WriteLine(osoba); }
+                foreach (PojistenaOsoba osoba in pojisteneOsoby)            
+                     Console.WriteLine(osoba); 
             }
             spracovaniUzivatelskychVstupu.Pokracuj();
         }
@@ -94,15 +86,15 @@ namespace Project_Basic_Lite
 
             List<PojistenaOsoba> pojisteneOsoby = databazeOsob.VyhledejOsobu(jmeno, prijmeni); //pracuje se seznamem, kde jsou osoby s danym jmenem a prijmenim
             if (!pojisteneOsoby.Any())
-            { Console.WriteLine("\nOsoba nebyla nalezena."); }                  //pokud se nanasla zadna shoda jmena a prijmeni
+                 Console.WriteLine("\nOsoba nebyla nalezena.");                  //pokud se nanasla zadna shoda jmena a prijmeni
             else
             {
                 Console.WriteLine("\nNalezeno:\n");                         //vypise vsechny Osoby ze seznamu, kam se ulozili shody dle jmena a prijmeni
                 foreach (PojistenaOsoba osoba in pojisteneOsoby)
-                { Console.WriteLine(osoba); }
+                    Console.WriteLine(osoba);
 
                 Console.Write("Vyber poradove cislo osoby, kterou chcete vymazat: \t");  //upresneni, ktera osoba ma byt vymazana, pokud je vice nalezeno se stejnym jmenem a prijmenim
-                ;
+                
                 if (int.TryParse(Console.ReadLine(), out int index))
                 {                                                           // nalezeni osoby se zadanym poradovym cislem 
                     PojistenaOsoba osobaKVymazani = pojisteneOsoby.FirstOrDefault(osoba => osoba.PoradoveCislo == index);
@@ -120,10 +112,10 @@ namespace Project_Basic_Lite
                             Console.WriteLine("\nVymazáno");
                         }
                         else
-                        { Console.WriteLine("\nNeplatná volba, prosím vyberte [a] pro vymazání nebo [n] pro zrušení."); }
+                            Console.WriteLine("\nNeplatná volba, prosím vyberte [a] pro vymazání nebo [n] pro zrušení.");
                     }
                     else
-                    { Console.WriteLine("Nesprávné pořadové číslo."); }
+                        Console.WriteLine("Nesprávné pořadové číslo.");
                 }
             }
             spracovaniUzivatelskychVstupu.Pokracuj();

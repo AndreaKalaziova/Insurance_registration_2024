@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Project_Basic_Lite
 {
     internal class PojistenaOsoba
@@ -11,7 +6,7 @@ namespace Project_Basic_Lite
         /// <summary>
         /// osoba ma jmeno, prijmeni, vek, telefonni cislo
         /// </summary>
-        public string Jmeno { get; set; }
+        public string Jmeno { get; set; }                       //setter, private
         public string Prijmeni { get; set; }
         public int Vek { get; set; }
         public string TelefonniCislo { get; set; }
@@ -19,7 +14,6 @@ namespace Project_Basic_Lite
         /// poradove cislo, index pro lehci vybirani ze seznamu
         /// </summary>
         public int PoradoveCislo { get; set; }
-
 
         /// <summary>
         /// inic.

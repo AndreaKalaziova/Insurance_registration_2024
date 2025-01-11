@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Project_Basic_Lite
 {
     // db pro osoby a metody co s ni lze delat
@@ -38,7 +33,7 @@ namespace Project_Basic_Lite
 
             var dotaz = from s in pojisteneOsoby select s;
             foreach (PojistenaOsoba osoba in dotaz)
-            { seznamOsob.Add(osoba); }                             // nalezene se prida do seznamOsob, ktere vyuzijeme v EvidencePojistencu
+                seznamOsob.Add(osoba);                             // nalezene se prida do seznamOsob, ktere vyuzijeme v EvidencePojistencu
 
             return seznamOsob;
         }
@@ -56,7 +51,7 @@ namespace Project_Basic_Lite
                         where (o.Jmeno == jmeno) && (o.Prijmeni == prijmeni)
                         select o;
             foreach (PojistenaOsoba osoba in dotaz)
-            { vysledkyHledani.Add(osoba); }                             // nalezene se prida do vysledkyHledani, ktere vyuzijem v EvidenciPojistencu
+                vysledkyHledani.Add(osoba);                            // nalezene se prida do vysledkyHledani, ktere vyuzijem v EvidenciPojistencu
 
             return vysledkyHledani;
         }
